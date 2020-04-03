@@ -10,7 +10,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/6813957f24.js" crossorigin="anonymous"></script>
     
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
@@ -29,7 +29,6 @@
                 <div class="col">
                     <input type="text" id="price" class="form-control" placeholder="Price" autocomplete="off">
                 </div>
-
             </div>
         </form>
     </div>
@@ -50,6 +49,8 @@
                     <th scope="col">Product Name</th>
                     <th scope="col">Seller</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,18 +59,24 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
+                    <td><i class="fas fa-edit btnedit"></i></td>
+                    <td><i class="fas fa-trash-alt btndelete"></i></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td><i class="fas fa-edit btnedit"></i></td>
+                    <td><i class="fas fa-trash-alt btndelete"></i></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td>@twitter</td>
+                    <td><i class="fas fa-edit btnedit"></i></td>
+                    <td><i class="fas fa-trash-alt btndelete"></i></td>
                 </tr>
             </tbody>
         </table>
@@ -85,5 +92,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <!-- Dexie API-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js"
+        integrity="sha256-ubffRsoh9QK5xJC/u3s3drtGFBZUHBm9bHFRzYvtkJI=" crossorigin="anonymous"></script>
+    
+        <!-- Custom Javascript main.js-->
+    <script src="../js/main.js" type="module"></script>
+    
 </body>
 </html>
