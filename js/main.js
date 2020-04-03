@@ -3,7 +3,7 @@ import productdb, {
 } from './Module.js';
 
 let db = productdb("Productdb",{
-    produtcs: '++id, name, seller, price'
+    products: '++id, name, seller, price'
 });
 
 // input tags
