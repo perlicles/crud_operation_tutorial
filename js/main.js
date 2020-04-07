@@ -1,5 +1,7 @@
 import productdb, {
-    bulkcreate
+    bulkcreate,
+    getData,
+    createEle
 } from './Module.js';
 
 let db = productdb("Productdb",{
@@ -25,9 +27,52 @@ btncreate.onclick = (event) => {
         seller : seller.value,
         price : price.value
     });
-    console.log(flag);
+    //console.log(flag);
+
+    proname.value = seller.value = price.value = "";
+    
+    getData(db.products, (data) => {
+        userid.value = data.id + 1 || 1;
+    });
+
 }
 
-btnread.onclick = (event) => {
-   
+btnread.onclick = table;
+
+function table() {
+    const tbody = document.getElementById("tbody");
+    
+    while(tbody.hasChildNodes()) {
+        tbody.removeChild(tbody.firstChild);
+    }
+
+    getData(db.products, (data) => {
+        
+        if(data) {
+            createEle("tr", tbody, tr => {
+
+                for (const value in data) {
+                    
+                    createEle("td", tr, td => {
+                        td.textContent = data.price === data[value] ? `R$ ${data[value]}` : data[value];
+                    })
+
+                }
+                createEle("td",tr, td => {
+                    createEle("i", td, i => {
+                        i.className += "fas fa-edit btnedit";
+                    })
+                })
+
+                createEle("td", tr, td => {
+                    createEle("i", td, i => {
+                        i.className += "fas fa-trash-alt btndelete";
+                    })
+                })
+
+            })
+        }
+
+    })
+
 }

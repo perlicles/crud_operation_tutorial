@@ -42,7 +42,47 @@ const empty = object => {
     return flag;
 }
 
+// Get data from the data base
+const getData = (dbtable, fn) => {
+    let index = 0;
+    let obj = {};
+
+    dbtable.count((count) => {
+        if (count) {
+            dbtable.each(table => {
+                obj = Sortobj(table);
+                fn(obj, index++);
+            })
+        } else {
+            fn(0);
+        }
+
+    });
+
+}
+
+// Sort object
+const Sortobj = sortobj => {
+    let obj = {};
+    obj = {
+        id: sortobj.id,
+        name: sortobj.name,
+        seller: sortobj.seller,
+        price: sortobj.price
+    }
+    return obj;
+}
+
+// Create dynamic elements
+const createEle = (tagname, appendTo, fn) => {
+    const element = document.createElement(tagname);
+    if(appendTo) appendTo.appendChild(element);
+    if(fn) fn(element);
+}
+
 export default productdb;
 export {
-    bulkcreate
+    bulkcreate,
+    getData,
+    createEle
 };
